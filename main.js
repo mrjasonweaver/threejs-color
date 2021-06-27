@@ -14,7 +14,7 @@ let cubeColor = black;
 scene.background = white;
 
 const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const material = new THREE.MeshBasicMaterial();
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
