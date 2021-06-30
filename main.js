@@ -5,7 +5,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 const white = new THREE.Color( 0xffffff );
-const black = new THREE.Color( 0x000000 );
+const grey = new THREE.Color( 0xdddddd );
 const red = new THREE.Color( 0xff0000 );
 const green = new THREE.Color( 0x00ff00 );
 const blue = new THREE.Color( 0x0000ff );
@@ -13,17 +13,23 @@ const blue = new THREE.Color( 0x0000ff );
 scene.background = white;
 
 let state = {
-  cubeColor: black,
-  previousTweenColor: black,
-  nextTweenColor: black,
+  cubeColor: grey,
+  previousTweenColor: grey,
+  nextTweenColor: grey,
   alphaUnit: 0,
   isTweenRunning: false
 }
 
 const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial();
+const material = new THREE.MeshStandardMaterial();
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
+
+const directionalLight = new THREE.DirectionalLight( 0xffffff );
+directionalLight.position.y = 0;
+directionalLight.position.z = 1;
+scene.add( directionalLight );
+
 cube.material.color.set(state.cubeColor);
 camera.position.z = 5;
 
