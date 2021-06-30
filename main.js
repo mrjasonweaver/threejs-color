@@ -16,8 +16,7 @@ let state = {
   cubeColor: grey,
   previousTweenColor: grey,
   nextTweenColor: grey,
-  alphaUnit: 0,
-  isTweenRunning: false
+  alphaUnit: 0
 }
 
 const geometry = new THREE.BoxGeometry();
@@ -52,8 +51,7 @@ const tweenColors = color => {
     ...state,
     previousTweenColor: state.cubeColor,
     nextTweenColor: color,
-    alphaUnit: 0,
-    isTweenRunning: true
+    alphaUnit: 0
   }
 }
 
@@ -62,12 +60,10 @@ const animate = () => {
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
 
-  if (state.isTweenRunning && !state.previousTweenColor.equals(state.nextTweenColor) ) {
+  if (!state.previousTweenColor.equals(state.nextTweenColor) ) {
     state.alphaUnit = +(state.alphaUnit + 0.01).toFixed(2);
     state.cubeColor = state.cubeColor.lerpColors(state.previousTweenColor, state.nextTweenColor, state.alphaUnit);
     cube.material.color.set(state.cubeColor);
-  } else {
-    state.isTweenRunning = false;
   }
 
   renderer.render( scene, camera );

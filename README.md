@@ -22,3 +22,33 @@ Adds basic color creation and manipulation examples
 - Setting `cubeColor` on keyboard user input
 
 ![alt text](./threejs-color-basics.gif "Three.js Color Basics")
+
+## Color Tweening
+Branch: https://github.com/mrjasonweaver/threejs-color/tree/color-tweening
+
+Adds color tweening example
+
+### Setting up state
+- Defining the cube state object
+- Defining `tweenColors()` function 
+
+### Conditional to start tween
+- Using `requestAnimationFrame`
+- `Color.equals()` to test if 2 colors are the same
+
+![alt text](./threejs-color-tweening.gif "Three.js Color Tweening")
+
+## MeshStandardMaterial and Lighting
+Branch: https://github.com/mrjasonweaver/threejs-color/tree/color-mesh-standard-material-lighting
+
+Adds MeshStandardMaterial and directionalLighting
+
+### MeshStandardMaterial
+- Defining `MeshStandardMaterial` to use for the cube
+- Change the default cube color from black to grey
+
+### Lighting
+- Adding `directionalLight` to the scene
+- Adjust lighting position
+
+![alt text](./threejs-standard-material-lighting.gif "Three.js Standard Material and Lighting")
